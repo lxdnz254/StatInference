@@ -78,7 +78,7 @@ img {
 
 <div id="synopsis" class="section level2">
 <h2>Synopsis</h2>
-<p>Investigate the exponential distribution in R and compare it with the Central Limit Theorem. The exponential distribution can be simulated in R with rexp(n, lambda) where lambda is the rate parameter. The mean of exponential distribution is 1/lambda and the standard deviation is also 1/lambda. Set lambda = 0.2 for all of the simulations. You will investigate the distribution of averages of 40 exponentials. Note that you will need to do a thousand simulations.</p>
+<p>Investigate the exponential distribution in R and compare it with the Central Limit Theorem. The exponential distribution can be simulated in R with rexp(n, lambda) where lambda is the rate parameter. The mean of exponential distribution is 1/lambda and the standard deviation is also 1/lambda. Set lambda = 0.2 for all of the simulations. Investigate the distribution of averages of 40 exponentials running a thousand simulations.</p>
 <p>Illustrate via simulation and associated explanatory text the properties of the distribution of the mean of 40 exponentials. You should 1. Show the sample mean and compare it to the theoretical mean of the distribution. 2. Show how variable the sample is (via variance) and compare it to the theoretical variance of the distribution. 3. Show that the distribution is approximately normal.</p>
 </div>
 <div id="create-the-distribution" class="section level2">
@@ -102,12 +102,12 @@ sim_exp &lt;- replicate(sim, rexp(n, lambda))
 means_exp &lt;- apply(sim_exp, 2, mean)</code></pre>
 <div id="show-and-compare-the-distribution-mean-and-variance" class="section level3">
 <h3>Show and compare the distribution mean and variance</h3>
-<p>Theoretical mean is <code>1/lambda</code> 5</p>
-<p>Our analytical mean is <code>mean(means_exp)</code> 5.0450596</p>
-<p>The theoretical standard deviation is <code>1/lambda/sqrt(n)</code> 0.7905694</p>
-<p>Our analytical standard deviation is <code>sd(means_exp)</code> 0.7982821</p>
-<p>The theoretical variance is <code>((1/lambda)*(1/sqrt(n)))^2</code> 0.625</p>
-<p>Our analytical variance is <code>var(means_exp)</code> 0.6372544</p>
+<p>Theoretical mean is <code>1/lambda</code> = 5</p>
+<p>Our analytical mean is <code>mean(means_exp)</code> = 5.0450596</p>
+<p>The theoretical standard deviation is <code>1/lambda/sqrt(n)</code> = 0.7905694</p>
+<p>Our analytical standard deviation is <code>sd(means_exp)</code> = 0.7982821</p>
+<p>The theoretical variance is <code>((1/lambda)*(1/sqrt(n)))^2</code> = 0.625</p>
+<p>Our analytical variance is <code>var(means_exp)</code> = 0.6372544</p>
 <pre class="r"><code>hist(means_exp, xlab = &quot;mean&quot;, main = &quot;Exponential Function Simulations&quot;)
 abline(v = mean(means_exp), col = &quot;green&quot;)
 abline(v = 1/lambda, col = &quot;yellow&quot;)</code></pre>

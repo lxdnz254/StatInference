@@ -4,12 +4,12 @@ Friday, February 06, 2015
 
 ## Synopsis
 
-Investigate the exponential distribution in R and compare it with the Central Limit Theorem. The exponential distribution can be simulated in R with rexp(n, lambda) where lambda is the rate parameter. The mean of exponential distribution is 1/lambda and the standard deviation is also 1/lambda. Set lambda = 0.2 for all of the simulations. You will investigate the distribution of averages of 40 exponentials. Note that you will need to do a thousand simulations.
+Investigate the exponential distribution in R and compare it with the Central Limit Theorem. The exponential distribution can be simulated in R with rexp(n, lambda) where lambda is the rate parameter. The mean of exponential distribution is 1/lambda and the standard deviation is also 1/lambda. Set lambda = 0.2 for all of the simulations. Investigate the distribution of averages of 40 exponentials running a thousand simulations.
 
 Illustrate via simulation and associated explanatory text the properties of the distribution of the mean of 40 exponentials.  You should
-1. Show the sample mean and compare it to the theoretical mean of the distribution.
-2. Show how variable the sample is (via variance) and compare it to the theoretical variance of the distribution.
-3. Show that the distribution is approximately normal.
+ 1. Show the sample mean and compare it to the theoretical mean of the distribution.
+ 2. Show how variable the sample is (via variance) and compare it to the theoretical variance of the distribution.
+ 3. Show that the distribution is approximately normal.
 
 ## Create the Distribution
 
@@ -36,17 +36,17 @@ means_exp <- apply(sim_exp, 2, mean)
 
 ### Show and compare the distribution mean and variance
 
-Theoretical mean is `1/lambda` 5
+Theoretical mean is `1/lambda` = 5
 
-Our analytical mean is `mean(means_exp)` 5.0450596
+Our analytical mean is `mean(means_exp)` = 5.0450596
 
-The theoretical standard deviation is `1/lambda/sqrt(n)` 0.7905694
+The theoretical standard deviation is `1/lambda/sqrt(n)` = 0.7905694
 
-Our analytical standard deviation is `sd(means_exp)` 0.7982821
+Our analytical standard deviation is `sd(means_exp)` = 0.7982821
 
-The theoretical variance is `((1/lambda)*(1/sqrt(n)))^2` 0.625
+The theoretical variance is `((1/lambda)*(1/sqrt(n)))^2` = 0.625
 
-Our analytical variance is `var(means_exp)` 0.6372544
+Our analytical variance is `var(means_exp)` = 0.6372544
 
 
 ```r
