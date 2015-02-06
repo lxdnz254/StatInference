@@ -1,12 +1,6 @@
----
-title: "Statistical Inference Course Project - Part 1"
-author: "Alex McBride"
-date: "Friday, February 06, 2015"
-output: 
-    html_document:
-        keep_md: yes
-        toc: yes
----
+# Statistical Inference Course Project - Part 1
+Alex McBride  
+Friday, February 06, 2015  
 
 ## Synopsis
 
@@ -46,7 +40,7 @@ Theoretical mean is `1/lambda` 5
 
 Our analytical mean is `mean(means_exp)` 5.0450596
 
-The theoretical standard deviation is `1/lambda/sqrt(n`) 0.7905694
+The theoretical standard deviation is `1/lambda/sqrt(n)` 0.7905694
 
 Our analytical standard deviation is `sd(means_exp)` 0.7982821
 
@@ -61,7 +55,7 @@ abline(v = mean(means_exp), col = "green")
 abline(v = 1/lambda, col = "yellow")
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
+![](StatInfP1_files/figure-html/unnamed-chunk-2-1.png) 
 
 ### Show that the distribution is approximately normal
 
@@ -74,5 +68,5 @@ lines(density(expscale), col = "purple", pch = 22, lty=5)
 curve(dnorm(x,0,1), -4, 4, col="red", add=T)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![](StatInfP1_files/figure-html/unnamed-chunk-3-1.png) 
 
