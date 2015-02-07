@@ -1,0 +1,55 @@
+---
+title: "Statisical Inference Course Project - Part 2"
+author: "Alex McBride"
+date: "Saturday, February 07, 2015"
+output: 
+      html_document:
+      keep_md: yes
+      toc: yes
+---
+
+## Summary of Project
+
+Analyze the ToothGrowth data in the R datasets package. Load the ToothGrowth data and perform some basic exploratory data analyses. Provide a basic summary of the data. Use confidence intervals and/or hypothesis tests, as taught in class to compare tooth growth by "supp" and "dose". Finally, state your conclusions and the assumptions needed for your conclusions. 
+
+## Load the data and libraries
+```{r, echo=TRUE}
+library(ggplot2)
+library(grid)
+data("ToothGrowth")
+data <- as.data.frame(ToothGrowth)
+summary(data)
+```
+
+```{r}
+# Get the mean length per dose group
+
+dataag <- aggregate(len~dose+supp, data=data, mean)
+
+```
+
+
+```{r}
+# Create Plots
+p1 <- ggplot(data, aes(x=factor(supp), y=len)) + 
+           geom_bar(stat="identity", aes(fill=factor(dose)), position = "dodge") +
+              scale_fill_brewer(name="Dose") +
+           theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+           guides(fill = guide_legend(reverse = TRUE)) +
+           labs(x="Supplement", y="Length",
+                title = "Maximum Tooth Growth")                  
+
+p2 <- ggplot(dataag, aes(x=factor(supp), y=len)) + 
+     geom_bar(stat="identity", aes(fill=factor(dose)), position = "dodge") +
+        scale_fill_brewer(name="Dose") +
+     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+     guides(fill = guide_legend(reverse = TRUE)) +
+     labs(x="Supplement", y="Average Length Grown",
+          title = "Mean Tooth Growth")
+
+# Define layout for plots and print
+pushViewport(viewport(layout = grid.layout(1, 2)))
+print(p1, vp = viewport(layout.pos.row = 1, layout.pos.col = 1))
+print(p2, vp = viewport(layout.pos.row = 1, layout.pos.col = 2))
+```
+
